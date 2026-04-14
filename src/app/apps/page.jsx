@@ -1,6 +1,11 @@
 import React from 'react';
 
-const page = () => {
+export const metadata = {
+  title: "App page",
+  description: "This is an application management website",
+};
+
+const AppPage = () => {
  return (
   <div>
    App page.?
@@ -8,4 +13,4 @@ const page = () => {
  );
 };
 
-export default page;
+export default AppPage;

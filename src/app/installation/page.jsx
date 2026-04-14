@@ -1,6 +1,11 @@
 import React from 'react';
 
-const page = () => {
+export const metadata = {
+  title: "InstallationPage",
+  description: "This is an application management website",
+};
+
+const InstallationPage = () => {
  return (
   <div>
    rom rom viao
@@ -8,4 +13,4 @@ const page = () => {
  );
 };
 
-export default page;
+export default InstallationPage;
