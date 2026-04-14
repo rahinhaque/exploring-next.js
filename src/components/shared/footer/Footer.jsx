@@ -90,7 +90,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2 text-gray-600">
               <FaHeart className="text-pink-500 animate-pulse" />
-              <span>Made with love by the AppHub team</span>
+              <span>Made with love by the Rahin Haque</span>
             </div>
             <p className="text-gray-600">
               © {currentYear} AppHub. All rights reserved.

@@ -3,6 +3,7 @@ import logoImg from "../../../assets/logo.png";
 import { FaGithub, FaSearch, FaBell, FaUser } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
+import Mylink from "./Mylink";
 
 const Navbar = () => {
   const navItems = [
@@ -55,12 +56,9 @@ const Navbar = () => {
           <ul className="hidden md:flex items-center gap-1">
             {navItems.map((item, index) => (
               <li key={index}>
-                <Link
-                  href={item.path}
-                  className="px-4 py-2 rounded-xl text-gray-600 hover:text-purple-600 hover:bg-purple-50 font-medium transition-all"
-                >
+                <Mylink href={item.path}>
                   {item.text}
-                </Link>
+                </Mylink>
               </li>
             ))}
           </ul>
