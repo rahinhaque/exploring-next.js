@@ -39,8 +39,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-50 border-t border-gray-200 mt-auto">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-purple-500/30">
@@ -54,7 +54,7 @@ const Footer = () => {
               Your one-stop destination for discovering, downloading, and
               sharing amazing applications. Built with love by the community.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               {socialLinks.map((social, index) => (
                 <Link
                   key={index}
@@ -86,13 +86,15 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className="mt-16 pt-8 border-t border-gray-200">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-2 text-gray-600">
+        <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-gray-200">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+            <div className="flex items-center justify-center gap-2 text-gray-600">
               <FaHeart className="text-pink-500 animate-pulse" />
-              <span>Made with love by the Rahin Haque</span>
+              <span className="text-sm sm:text-base">
+                Made with love by Rahin Haque
+              </span>
             </div>
-            <p className="text-gray-600">
+            <p className="text-gray-600 text-sm sm:text-base">
               © {currentYear} AppHub. All rights reserved.
             </p>
           </div>

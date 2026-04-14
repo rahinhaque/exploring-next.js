@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Demo store",
+  title: "App Hub",
   description: "This is an application management website",
 };
 
