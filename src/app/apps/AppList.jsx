@@ -108,37 +108,40 @@ const AppList = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {apps.map((app) => {
             const gradientColor = getRandomColor();
-
+            
             return (
-              <div
-                key={app.id}
-                className="group bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+              <Link 
+                key={app.id} 
+                href={`/apps/${app.id}`}
+                className="group block bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
                 <div className="flex items-start gap-4 mb-5">
-                  <div
-                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${gradientColor} flex items-center justify-center text-3xl shadow-lg overflow-hidden`}
-                  >
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${gradientColor} flex items-center justify-center text-3xl shadow-lg overflow-hidden`}>
                     {app.image ? (
-                      <Image
-                        src={app.image}
-                        alt={app.title}
+                      <Image 
+                        src={app.image} 
+                        alt={app.title} 
                         width={64}
                         height={64}
                         className="object-cover"
                       />
                     ) : (
-                      "📱"
+                      '📱'
                     )}
                   </div>
                   <div className="flex-1">
-                    <Link href={`/apps/${app.id}`}>
-                      <h3 className="text-xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">
-                        {app.title}
-                      </h3>
-                    </Link>
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">
+                      {app.title}
+                    </h3>
                     <p className="text-sm text-gray-500">{app.companyName}</p>
                   </div>
-                  <button className="p-2 rounded-xl bg-gray-100 text-gray-400 hover:bg-pink-100 hover:text-pink-500 transition-all">
+                  <button 
+                    className="p-2 rounded-xl bg-gray-100 text-gray-400 hover:bg-pink-100 hover:text-pink-500 transition-all" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }}
+                  >
                     <FaHeart className="w-5 h-5" />
                   </button>
                 </div>
@@ -150,13 +153,16 @@ const AppList = () => {
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100 gap-4">
                   <div className="flex items-center gap-1.5">
                     <FaStar className="w-4 h-4 text-yellow-400" />
-                    <span className="font-semibold text-gray-900">
-                      {app.ratingAvg}
-                    </span>
+                    <span className="font-semibold text-gray-900">{app.ratingAvg}</span>
                   </div>
-                  <InstallToggleButton app={app} />
+                  <div onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  }}>
+                    <InstallToggleButton app={app} size="small" />
+                  </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

@@ -3,14 +3,16 @@ import React, { useState, useContext } from "react";
 import { FaDownload, FaCheck } from "react-icons/fa";
 import { InstallAppsContext } from "@/context/install.context";
 
-const InstallToggleButton = ({ app }) => {
+const InstallToggleButton = ({ app, size = "large" }) => {
   const [isInstalling, setIsInstalling] = useState(false);
   const { addInstalledApp, removeInstalledApp, isAppInstalled } =
     useContext(InstallAppsContext);
 
   const isInstalled = isAppInstalled(app.id);
 
-  const handleInstall = () => {
+  const handleInstall = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (isInstalled) {
       setIsInstalling(true);
       setTimeout(() => {
@@ -26,11 +28,15 @@ const InstallToggleButton = ({ app }) => {
     }
   };
 
+  const isSmall = size === "small";
+
   return (
     <button
       onClick={handleInstall}
       disabled={isInstalling}
-      className={`flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-lg shadow-lg transition-all ${
+      className={`flex items-center gap-2 ${
+        isSmall ? "px-3 py-2 text-sm rounded-xl" : "px-8 py-4 text-lg rounded-2xl"
+      } font-bold shadow-lg transition-all ${
         isInstalled
           ? "bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:shadow-xl cursor-pointer"
           : isInstalling
@@ -40,18 +46,18 @@ const InstallToggleButton = ({ app }) => {
     >
       {isInstalling ? (
         <>
-          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-          {isInstalled ? "Uninstalling..." : "Installing..."}
+          <div className={`${isSmall ? "w-4 h-4" : "w-5 h-5"} border-2 border-white border-t-transparent rounded-full animate-spin`} />
+          {!isSmall && (isInstalled ? "Uninstalling..." : "Installing...")}
         </>
       ) : isInstalled ? (
         <>
-          <FaCheck className="w-5 h-5" />
-          Installed
+          <FaCheck className={`${isSmall ? "w-4 h-4" : "w-5 h-5"}`} />
+          {!isSmall && "Installed"}
         </>
       ) : (
         <>
-          <FaDownload className="w-5 h-5" />
-          Install
+          <FaDownload className={`${isSmall ? "w-4 h-4" : "w-5 h-5"}`} />
+          {!isSmall && "Install"}
         </>
       )}
     </button>
