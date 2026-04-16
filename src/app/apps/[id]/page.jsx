@@ -1,19 +1,19 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  FaDownload,
-  FaStar,
-  FaArrowLeft,
-  FaShare,
-  FaHeart,
-  FaGooglePlay,
-  FaShieldAlt,
-  FaInfoCircle,
-  FaCheckCircle,
+import { 
+  FaStar, 
+  FaArrowLeft, 
+  FaShare, 
+  FaHeart, 
+  FaGooglePlay, 
+  FaShieldAlt, 
+  FaInfoCircle, 
+  FaCheckCircle 
 } from "react-icons/fa";
 import fs from "fs/promises";
 import path from "path";
+import InstallToggleButton from "@/components/apps/InstallToggleButton";
 
 async function getAppData(id) {
   try {
@@ -63,11 +63,11 @@ const AppDetails = async ({ params }) => {
   const getRandomColor = () => {
     const colors = [
       "from-blue-500 to-indigo-600",
-      "from-green-500 to-emerald-600",
+      "from-green-500 to-emerald-600", 
       "from-purple-500 to-pink-600",
       "from-orange-500 to-red-600",
       "from-pink-500 to-rose-600",
-      "from-teal-500 to-cyan-600",
+      "from-teal-500 to-cyan-600"
     ];
     return colors[Math.floor(Math.random() * colors.length)];
   };
@@ -83,8 +83,8 @@ const AppDetails = async ({ params }) => {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-        <Link
-          href="/apps"
+        <Link 
+          href="/apps" 
           className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-800 font-semibold mb-8 transition-colors"
         >
           <FaArrowLeft />
@@ -93,19 +93,17 @@ const AppDetails = async ({ params }) => {
 
         <div className="bg-white rounded-3xl p-8 shadow-lg mb-8">
           <div className="flex flex-col md:flex-row gap-8">
-            <div
-              className={`w-32 h-32 md:w-40 md:h-40 rounded-3xl bg-gradient-to-br ${gradientColor} flex items-center justify-center text-6xl shadow-xl overflow-hidden flex-shrink-0`}
-            >
+            <div className={`w-32 h-32 md:w-40 md:h-40 rounded-3xl bg-gradient-to-br ${gradientColor} flex items-center justify-center text-6xl shadow-xl overflow-hidden flex-shrink-0`}>
               {app.image ? (
-                <Image
-                  src={app.image}
-                  alt={app.title}
+                <Image 
+                  src={app.image} 
+                  alt={app.title} 
                   width={160}
                   height={160}
                   className="object-cover"
                 />
               ) : (
-                "📱"
+                '📱'
               )}
             </div>
 
@@ -120,26 +118,17 @@ const AppDetails = async ({ params }) => {
               <div className="flex items-center gap-6 mb-6">
                 <div className="flex items-center gap-2">
                   <FaStar className="w-5 h-5 text-yellow-400" />
-                  <span className="text-xl font-bold text-gray-900">
-                    {app.ratingAvg}
-                  </span>
-                  <span className="text-gray-500 text-sm">
-                    ({app.reviews} reviews)
-                  </span>
+                  <span className="text-xl font-bold text-gray-900">{app.ratingAvg}</span>
+                  <span className="text-gray-500 text-sm">({app.reviews} reviews)</span>
                 </div>
                 <div className="text-gray-500">•</div>
-                <div className="text-gray-600 font-medium">
-                  {app.downloads} downloads
-                </div>
+                <div className="text-gray-600 font-medium">{app.downloads} downloads</div>
                 <div className="text-gray-500">•</div>
                 <div className="text-gray-600 font-medium">{app.size} MB</div>
               </div>
 
               <div className="flex flex-wrap gap-4">
-                <button className="flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-all">
-                  <FaDownload className="w-5 h-5" />
-                  Install
-                </button>
+                <InstallToggleButton app={app} />
                 <button className="p-4 border-2 border-gray-200 rounded-2xl hover:border-purple-500 hover:bg-purple-50 transition-all">
                   <FaShare className="w-5 h-5 text-gray-600 hover:text-purple-600" />
                 </button>
@@ -180,20 +169,16 @@ const AppDetails = async ({ params }) => {
         </div>
 
         <div className="bg-white rounded-3xl p-8 shadow-lg">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">
-            Ratings & Reviews
-          </h2>
-
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">Ratings & Reviews</h2>
+          
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="text-center lg:text-left">
-              <div className="text-6xl font-bold text-gray-900 mb-2">
-                {app.ratingAvg}
-              </div>
+              <div className="text-6xl font-bold text-gray-900 mb-2">{app.ratingAvg}</div>
               <div className="flex items-center justify-center lg:justify-start gap-1 mb-2">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <FaStar
-                    key={star}
-                    className={`w-6 h-6 ${star <= Math.round(app.ratingAvg) ? "text-yellow-400" : "text-gray-300"}`}
+                  <FaStar 
+                    key={star} 
+                    className={`w-6 h-6 ${star <= Math.round(app.ratingAvg) ? 'text-yellow-400' : 'text-gray-300'}`}
                   />
                 ))}
               </div>
@@ -204,14 +189,12 @@ const AppDetails = async ({ params }) => {
               {[...app.ratings].reverse().map((rating, index) => {
                 const starNumber = 6 - index - 1;
                 const percentage = (rating.count / totalRatings) * 100;
-
+                
                 return (
                   <div key={index} className="flex items-center gap-3">
-                    <span className="text-sm text-gray-600 w-12">
-                      {starNumber} star
-                    </span>
+                    <span className="text-sm text-gray-600 w-12">{starNumber} star</span>
                     <div className="flex-1 h-3 bg-gray-200 rounded-full overflow-hidden">
-                      <div
+                      <div 
                         className="h-full bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full transition-all duration-1000"
                         style={{ width: `${percentage}%` }}
                       />

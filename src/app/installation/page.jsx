@@ -1,16 +1,12 @@
-import React from 'react';
+import InstallationContent from './InstallationContent';
 
 export const metadata = {
-  title: "InstallationPage",
-  description: "This is an application management website",
+  title: "My Installed Apps - AppHub",
+  description: "Manage your installed applications",
 };
 
 const InstallationPage = () => {
- return (
-  <div>
-   rom rom viao
-  </div>
- );
+  return <InstallationContent />;
 };
 
 export default InstallationPage;
