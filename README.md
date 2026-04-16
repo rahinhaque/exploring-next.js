@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📱 App Hub - Modern App Store
 
-## Getting Started
+A beautiful, modern app store built with Next.js, Tailwind CSS, and React. Discover, explore, and install amazing applications!
 
-First, run the development server:
+## 🌐 Live Preview
+
+Check out the live version: [https://apphub71.netlify.app/](https://apphub71.netlify.app/)
+
+## 🚀 Features
+
+- **Beautiful Modern UI**: Clean, contemporary design with smooth animations
+- **Responsive Layout**: Perfect on mobile, tablet, and desktop
+- **App Discovery**: Browse all available apps with detailed information
+- **App Details**: Comprehensive app pages with ratings, reviews, and descriptions
+- **Installation Management**: Install and uninstall apps with a beautiful toggle system
+- **Installed Apps Page**: View and manage all your installed applications in one place
+- **Trending Apps**: Discover popular apps on the homepage
+- **Search & Filter**: Find apps quickly (coming soon!)
+
+## 🛠️ Tech Stack
+
+- **Next.js 14** - React framework with App Router
+- **React** - UI library
+- **Tailwind CSS** - Utility-first CSS framework
+- **React Icons** - Icon library
+- **React Spinners** - Loading animations
+- **Context API** - State management for installed apps
+
+## 📦 Getting Started
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+### Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+my-app/
+├── src/
+│   ├── app/
+│   │   ├── apps/          # Apps pages
+│   │   ├── dashboard/     # Dashboard page
+│   │   ├── installation/  # Installed apps page
+│   │   ├── layout.js      # Root layout
+│   │   └── page.js        # Homepage
+│   ├── components/
+│   │   ├── apps/          # App components
+│   │   ├── homepage/      # Homepage components
+│   │   └── shared/        # Shared components (Navbar, Footer)
+│   └── context/           # React Context
+├── public/
+│   └── data.json          # Apps data
+└── package.json
+```
 
-## Deploy on Vercel
+## 👨‍💻 Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Rahin Haque** - [GitHub](https://github.com/rahinhaque)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+
+This project is open source. Feel free to use it for your own projects!
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+---
+
+Made with ❤️ by Rahin Haque
